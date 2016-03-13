@@ -20,8 +20,8 @@ from alchemyapi import AlchemyAPI
 import json
 
 
-demo_text = 'Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.'
-demo_url = 'http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen'
+demo_text = "Airfrov raises funding from East Ventures to get you limited-edition items from overseas"
+demo_url = 'https://e27.co/airfrov-raises-funding-east-ventures-get-limited-edition-items-overseas-20160301/'
 demo_html = '<html><head><title>Python Demo | AlchemyAPI</title></head><body><h1>Did you know that AlchemyAPI works on HTML?</h1><p>Well, you do now.</p></body></html>'
 image_url = 'http://demo1.alchemyapi.com/images/vision/football.jpg'
 
@@ -277,34 +277,6 @@ print('')
 print('')
 print('')
 print('############################################')
-print('#   Language Detection Example             #')
-print('############################################')
-print('')
-print('')
-
-print('Processing text: ', demo_text)
-print('')
-
-response = alchemyapi.language('text', demo_text)
-
-if response['status'] == 'OK':
-    print('## Response Object ##')
-    print(json.dumps(response, indent=4))
-
-    print('')
-    print('## Language ##')
-    print('language: ', response['language'])
-    print('iso-639-1: ', response['iso-639-1'])
-    print('native speakers: ', response['native-speakers'])
-    print('')
-else:
-    print('Error in language detection call: ', response['statusInfo'])
-
-
-print('')
-print('')
-print('')
-print('############################################')
 print('#   Title Extraction Example               #')
 print('############################################')
 print('')
@@ -389,161 +361,6 @@ else:
     print('Error in text categorization call: ', response['statusInfo'])
 
 
-print('')
-print('')
-print('')
-print('############################################')
-print('#   Feed Detection Example                 #')
-print('############################################')
-print('')
-print('')
-
-print('Processing url: ', demo_url)
-print('')
-
-response = alchemyapi.feeds('url', demo_url)
-
-if response['status'] == 'OK':
-    print('## Response Object ##')
-    print(json.dumps(response, indent=4))
-
-    print('')
-    print('## Feeds ##')
-    for feed in response['feeds']:
-        print('feed: ', feed['feed'])
-else:
-    print('Error in feed detection call: ', response['statusInfo'])
-
-print('')
-print('')
-
-
-print('')
-print('')
-print('')
-print('############################################')
-print('#   Microformats Parsing Example           #')
-print('############################################')
-print('')
-print('')
-
-print('Processing url: ', demo_url)
-print('')
-
-response = alchemyapi.microformats('url', demo_url)
-
-if response['status'] == 'OK':
-    print('## Response Object ##')
-    print(json.dumps(response, indent=4))
-
-    print('')
-    print('## Microformats ##')
-    for microformat in response['microformats']:
-        print('Field: ', microformat['field'].encode('utf-8'))
-        print('Data: ', microformat['data'])
-        print('')
-
-else:
-    print('Error in microformats parsing call: ', response['statusInfo'])
-
-print('')
-print('')
-
-
-print('')
-print('')
-print('')
-print('############################################')
-print('#   Image Extraction Example               #')
-print('############################################')
-print('')
-print('')
-
-print('Processing url: ', demo_url)
-print('')
-
-response = alchemyapi.imageExtraction('url', demo_url)
-
-if response['status'] == 'OK':
-    print('## Response Object ##')
-    print(json.dumps(response, indent=4))
-
-    print('')
-    print('## Image ##')
-    print('Image: ', response['image'])
-    print('')
-
-else:
-    print('Error in image extraction call: ', response['statusInfo'])
-
-print('')
-print('')
-
-
-print('')
-print('')
-print('')
-print('############################################')
-print('#   Image tagging Example                  #')
-print('############################################')
-print('')
-print('')
-
-print('Processing url: ', image_url)
-print('')
-
-response = alchemyapi.imageTagging('url', image_url)
-
-if response['status'] == 'OK':
-    print('## Response Object ##')
-    print(json.dumps(response, indent=4))
-
-    print('')
-    print('## Keywords ##')
-    for keyword in response['imageKeywords']:
-        print(keyword['text'], ' : ', keyword['score'])
-    print('')
-else:
-    print('Error in image tagging call: ', response['statusInfo'])
-
-print('')
-print('')
-
-
-print('')
-print('')
-print('')
-print('############################################')
-print('#   Taxonomy  Example                      #')
-print('############################################')
-print('')
-print('')
-
-print('Processing text: ', demo_text)
-print('')
-
-response = alchemyapi.taxonomy('text', demo_text)
-
-if response['status'] == 'OK':
-    print('## Response Object ##')
-    print(json.dumps(response, indent=4))
-
-    print('')
-    print('## Categories ##')
-    for category in response['taxonomy']:
-        print(category['label'], ' : ', category['score'])
-    print('')
-
-else:
-    print('Error in taxonomy call: ', response['statusInfo'])
-
-print('')
-print('')
-
-
-print('')
-print('')
-print('')
 print('############################################')
 print('#   Combined  Example                      #')
 print('############################################')
